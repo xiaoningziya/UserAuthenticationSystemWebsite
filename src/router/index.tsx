@@ -1,0 +1,64 @@
+// 【react-router-dom】>>>【路由标签】V6对比V5：
+// 1. Routes 替换了 Switch
+// 2. Navigate 组件替换了 Redirect
+// 3. Route中 element 替换了 component/render 属性，且值是组件，而非组件名 ( 写法：<Route exact path="/xxx" element={<ModalName />} )
+
+import {Routes, Route, Navigate} from 'react-router-dom';
+
+const RenderHandle = (props: any, item: any)=>{
+  if (item.redirect){
+    return <Navigate to={item.redirect}/>
+  }
+  if (item.children){
+    return <item.component {...props} routes={item.children}/>
+  }else{
+    return <item.component {...props}/>
+  }
+}
+
+export default function RouterView(props: any){
+  return (<Routes>
+    {
+      props.routes.map((item: any, index: number) => {
+        return <Route key={index} path={item.path} element={
+          RenderHandle(props, item)
+        } />
+      })
+    }
+    </Routes>)
+}
+
+
+
+// 【react-router-dom】>>>【路由跳转】V6对比V5：
+// 1. 路由跳转
+// import { useNavigate } from 'react-router-dom';
+//  const navigate = useNavigate();
+//  navigate(path); // push
+//  navigate(path, {replace: true}); // replace
+// 2. 路由返回
+// import { useNavigate } from 'react-router-dom';
+//  const navigate = useNavigate();
+//  navigate(-1);
+// 3. 携带参数
+// 3.1. state属性携带参数： （隐式传参）
+// import { useNavigate } from 'react-router-dom';
+// const navigate = useNavigate();
+// navigate('/listPage', {
+//   state: {
+//     aaa: '123',
+//   }
+// })
+// url: http://localhost:3000/#/listPage
+// 3.2. search属性携带参数：（显式传参）
+// import { useNavigate } from 'react-router-dom';
+// const navigate = useNavigate();
+// navigate('/listPage' + '?bbb=456')
+// url: http://localhost:3000/#/listPage?bbb=456
+// 3.3. 路由传参携带参数： （显式传参，需要router.js 中配合）
+// import { useNavigate } from 'react-router-dom';
+// const navigate = useNavigate();
+// navigate('/detailPage' + '/' + id)
+// 需要router.js 中路由配合： <Route exact path="/detailPage/:id" element={<DetailPage />} />
+// 跳转后新页面 通过 const { id } = useParams(); 获取，其中useParams 为 react-router-dom 内方法
+// url: http://localhost:3000/#/detailPage/789
