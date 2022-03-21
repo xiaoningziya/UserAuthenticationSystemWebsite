@@ -1,7 +1,4 @@
-// 【react-router-dom】>>>【路由标签】V6对比V5：
-// 1. Routes 替换了 Switch
-// 2. Navigate 组件替换了 Redirect
-// 3. Route中 element 替换了 component/render 属性，且值是组件，而非组件名 ( 写法：<Route exact path="/xxx" element={<ModalName />} )
+/** @description: 无状态组件--封装路由 */
 
 import {Routes, Route, Navigate} from 'react-router-dom';
 
@@ -28,6 +25,11 @@ export default function RouterView(props: any){
     </Routes>)
 }
 
+
+// 【react-router-dom】>>>【路由标签】V6对比V5：
+// 1. Routes 替换了 Switch
+// 2. Navigate 组件替换了 Redirect
+// 3. Route中 element 替换了 component/render 属性，且值是组件，而非组件名 ( 写法：<Route exact path="/xxx" element={<ModalName />} )
 
 
 // 【react-router-dom】>>>【路由跳转】V6对比V5：

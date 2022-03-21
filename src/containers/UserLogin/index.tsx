@@ -1,15 +1,16 @@
 import * as React from 'react'
+import styles from './styles.module.scss'
 
 export default class UserLogin extends React.Component {
   constructor(props: any){
     super(props)
   }
-  public componentDidMount() {
+  componentDidMount() {
 
   }
   render() {
-    return (<div className="UserLogin">
-    登录页面--UserLogin
+    return (<div className={styles.UserLogin}>
+      登录页面
   </div>)
   }
 }

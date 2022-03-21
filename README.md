@@ -19,3 +19,13 @@
 中文：**https://react.docschina.org/docs/getting-started.html**
 
 英文：**https://reactjs.org/docs/getting-started.html**
+
+
+### 技术描述
+> 此项目主要用于练习 React + TS + Hooks + Egg
+1. 样式：CssModule
+2. 语法：TSX
+3. 状态：【redux】（持久化 + Provide + connect）
+4. 路由：【react-router】（封装RouterView）
+5. 请求：【axios】（封装请求实例）
+6. 服务：【egg】

@@ -1,15 +1,12 @@
 import * as React from 'react'
-
+import styles from './styles.module.scss'
 export default class HomePage extends React.Component {
   constructor(props: any){
     super(props)
   }
-  public componentDidMount() {
-
-  }
   render() {
-    return (<div className="HomePage">
-    主页面--HomePage
+    return (<div className={styles.HomePage}>
+      主页面
   </div>)
   }
 }
