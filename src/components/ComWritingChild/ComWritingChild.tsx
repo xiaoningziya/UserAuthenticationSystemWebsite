@@ -32,9 +32,9 @@ class ComWritingChild extends React.Component<Props, State> {
 const mapStateToProps = () => ({})
 const mapDispachToProps = (dispatch: Dispatch) => ({
   _countPlusCreater: (arg: any) => {dispatch(actions.countPlusCreater(arg))},
-  _countPlusAsync: (arg: any) => {actions.countPlusAsync(arg,dispatch)},
+  _countPlusAsync: (arg: any) => {actions.countPlusAsync(arg)()},
   _countReduceCreater: (arg: any) => {dispatch(actions.countReduceCreater(arg))},
-  _countReduceAsync: (arg: any) => {actions.countReduceAsync(arg,dispatch)},
+  _countReduceAsync: (arg: any) => {actions.countReduceAsync(arg)()},
 })
 
 export default connect(

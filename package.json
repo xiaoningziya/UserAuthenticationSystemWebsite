@@ -53,7 +53,9 @@
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.2.2",
     "redux": "^4.1.2",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "redux-promise": "^0.6.0",
     "redux-thunk": "^2.4.1",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
@@ -148,5 +150,10 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@types/redux-logger": "^3.0.9",
+    "@types/redux-promise": "^0.5.29",
+    "redux-logger": "^3.0.6"
   }
 }

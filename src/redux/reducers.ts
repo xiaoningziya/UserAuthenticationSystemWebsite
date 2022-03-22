@@ -1,7 +1,7 @@
 /** @description:  减速器定义*/
 
 import * as TYPES from './types';
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 function countCompute(state: number = 10, action: { type: any; data: any; }){
     console.log('countCompute',state,action)
@@ -15,7 +15,7 @@ function countCompute(state: number = 10, action: { type: any; data: any; }){
     }
 }
 
-/** 合并Reducers */
+/** @method: <combineReducers> 合并Reducers */
 export const finalReducer = combineReducers({
     countCompute
 })

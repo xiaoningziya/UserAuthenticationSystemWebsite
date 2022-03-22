@@ -17,7 +17,6 @@ type Props = Partial<{
   count: number
 }>
 class ComWritingParent extends React.Component<Props, State> {
-  
   /** state-step-3: 通过class类的readonly修饰符，将state对象修饰为只读，使用”this.state=xxx“会提示报错 */
   readonly state: State = initalState
   componentDidMount() {
