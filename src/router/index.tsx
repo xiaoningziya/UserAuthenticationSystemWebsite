@@ -1,8 +1,17 @@
-/** @description: 无状态组件--封装路由 */
+/** @file: 无状态组件--封装路由 */
 
+/** @type {FunctionComponent}  无状态函数组件类型*/
+/** @type {FC}  无状态函数组件类型--简写*/
+import { FunctionComponent, FC } from 'react'; 
 import {Routes, Route, Navigate} from 'react-router-dom';
+import { TRouteConfig } from './config'
 
-const RenderHandle = (props: any, item: any)=>{
+interface IProps{
+  routes: Array<TRouteConfig> ;
+  propName?: [string]
+}
+
+const RenderHandle: FC<any> = (props: IProps, item: TRouteConfig)=>{
   if (item.redirect){
     return <Navigate to={item.redirect}/>
   }
@@ -13,10 +22,10 @@ const RenderHandle = (props: any, item: any)=>{
   }
 }
 
-export default function RouterView(props: any){
+const RouterView: FunctionComponent<any> = (props: IProps) => {
   return (<Routes>
     {
-      props.routes.map((item: any, index: number) => {
+      props.routes.map((item: TRouteConfig, index: number) => {
         return <Route key={index} path={item.path} element={
           RenderHandle(props, item)
         } />
@@ -25,6 +34,7 @@ export default function RouterView(props: any){
     </Routes>)
 }
 
+export default RouterView;
 
 // 【react-router-dom】>>>【路由标签】V6对比V5：
 // 1. Routes 替换了 Switch

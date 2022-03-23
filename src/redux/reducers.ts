@@ -1,4 +1,4 @@
-/** @description:  减速器定义*/
+/** @file:  减速器定义*/
 
 import * as TYPES from './types';
 import { combineReducers } from 'redux';

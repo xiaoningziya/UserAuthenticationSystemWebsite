@@ -4,27 +4,38 @@ import UserLogin from '../containers/UserLogin/index'
 import ComWritingParent from '../components/ComWritingParent/ComWritingParent'
 
 /** 二级路由 */
-// import Home from '../containers/home/home'
+import ComWritingExhibition from '../components/ComWritingExhibition/ComWritingExhibition'
+import { type } from 'os';
 
-interface IRouteConfig {
-  path: string,
-  component?: any,
-  redirect?: string
-  children?: IRouteConfig
+export type TRouteConfig = {
+  readonly path: string;
+  readonly component?: any;
+  readonly redirect?: string;
+  readonly children?: Array<object>;
 }
 
-const routes: Array<IRouteConfig> = [
-  // @file: React+Ts 类组件的写法示范
-  { path: '/ComWritingParent', component: ComWritingParent },
-  // @file: 登录页面
-  { path: '/UserLogin', component: UserLogin },
-  // @file: 主页面
-  {path: '/HomePage', component: HomePage,
-    //  children: [
-    //   { path: '/root/home', component: Home },
-    // ]
-  },
-  { path: '/', redirect: '/HomePage' },
-]
+
+const routes: Array<TRouteConfig> = 
+  [{
+    /** @module React+Ts类组件的写法示范 */ 
+    path: '/ComWritingParent/*', 
+    component: ComWritingParent,
+    children: [{ 
+      /** @module [react-router-dom]v5版本路由API使用 */
+      path: '/ComWritingExhibition', 
+      component: ComWritingExhibition 
+    },]
+  },{ 
+    /** @module 登录页面 */
+    path: '/UserLogin', 
+    component: UserLogin 
+  },{ 
+    /** @module 主页面 */
+    path: '/HomePage', 
+    component: HomePage,
+  },{ 
+    path: '/', 
+    redirect: '/HomePage' 
+  },]
 
 export default routes

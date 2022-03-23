@@ -1,4 +1,4 @@
-/** @description: 仓库生成 */
+/** @file: 仓库包装生成 */
 
 import { createStore, applyMiddleware } from 'redux';
 import { finalReducer } from './reducers';

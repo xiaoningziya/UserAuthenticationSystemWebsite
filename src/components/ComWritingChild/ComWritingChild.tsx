@@ -14,17 +14,19 @@ type Props = Partial<{
   _countReduceAsync: (arg: any)=> void,
 
   comName: string
+  fromChildTip: (text: string) => void
 }>
 class ComWritingChild extends React.Component<Props, State> {
   readonly state: State = initalState;
   render() {
     return (<div className={styles.ComWritingChild}>
       <div>子级页面--操作</div>
-      <div>{ this.props.comName }</div>
       <Button type="primary" size='large' onClick={this.props._countPlusCreater}>+1 Creater</Button><br /><br />
       <Button type="primary" size='large' onClick={this.props._countPlusAsync}>+1 Async</Button><br /><br />
       <Button type="primary" size='large' onClick={this.props._countReduceCreater}>-1 Creater</Button><br /><br />
       <Button type="primary" size='large' onClick={this.props._countReduceAsync}>-1 Async</Button><br /><br />
+      <Button size='large'>组件通讯 》 父向子 》 { this.props.comName }</Button><br /><br />
+      <Button size='large' onClick={()=>{this.props.fromChildTip && this.props.fromChildTip('code-0029')}}>组件通讯 》 子向父 》 回调函数</Button><br /><br />
   </div>)
   }
 }

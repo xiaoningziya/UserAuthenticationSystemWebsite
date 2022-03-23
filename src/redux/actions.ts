@@ -1,4 +1,4 @@
-/** @description: 动作定义 */
+/** @file: 动作定义 */
 
 import * as TYPES from "./types";
 import { dispatch } from './store'
