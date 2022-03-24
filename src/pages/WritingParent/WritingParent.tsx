@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './styles.module.scss'
-import ComWritingChild from '../ComWritingChild/ComWritingChild'
+import ComWritingChild from '../WritingChild/WritingChild'
 import { Button } from 'antd'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'

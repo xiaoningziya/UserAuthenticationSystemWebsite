@@ -1,10 +1,10 @@
 /** 一级路由 */
 import HomePage from '../containers/HomePage/index'
 import UserLogin from '../containers/UserLogin/index'
-import ComWritingParent from '../components/ComWritingParent/ComWritingParent'
+import ComWritingParent from '../pages/WritingParent/WritingParent'
 
 /** 二级路由 */
-import ComWritingExhibition from '../components/ComWritingExhibition/ComWritingExhibition'
+import ComWritingExhibition from '../pages/WritingExhibition/WritingExhibition'
 import { type } from 'os';
 
 export type TRouteConfig = {

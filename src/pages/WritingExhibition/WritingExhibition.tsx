@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './styles.module.scss'
-import withDefaultProps from '../withDefaultProps/withDefaultProps'
+import withDefaultProps from '../../components/withDefaultProps/withDefaultProps'
 
 const defaultProps = {
   nickName: '王小二',
