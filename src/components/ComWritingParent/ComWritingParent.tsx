@@ -9,7 +9,8 @@ import RouterView from '../../router/index'
 /** state-step-1: 给定初始变量值 或 给定类型 */
 const initalState = {
   size: 'large',
-  childName:'Props',
+  childName: 'Props',
+  childId: 9527,
   timer: null as NodeJS.Timer | null
 }
 /** state-step-2: 通过内部类型Readonly,将对象中每个属性用只读修饰，实现”this.state.xxx=xxx“的直接赋值语法报错 */
@@ -28,7 +29,7 @@ class ComWritingParent extends React.Component<Props, State> {
     return (<div className={styles.ComWritingParent}>
       <div>父级页面--展示</div>
       <Button size='large'>countCompute: { this.props.count }</Button>
-      <ComWritingChild comName={this.state.childName} fromChildTip={this.fromChildTip}></ComWritingChild>
+      <ComWritingChild comName={this.state.childName} comId={this.state.childId} fromChildTip={this.fromChildTip} ></ComWritingChild>
       <Link to="/ComWritingParent/ComWritingExhibition">跳转至 /ComWritingParent/ComWritingExhibition 页面</Link>
       <RouterView routes={this.props.routes}></RouterView>
   </div>)

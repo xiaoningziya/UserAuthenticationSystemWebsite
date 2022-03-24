@@ -2,16 +2,16 @@
 
 /** @type {FunctionComponent}  无状态函数组件类型*/
 /** @type {FC}  无状态函数组件类型--简写*/
-import { FunctionComponent, FC } from 'react'; 
+import { FunctionComponent, FC, ReactElement } from 'react'; 
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { TRouteConfig } from './config'
 
 interface IProps{
-  routes: Array<TRouteConfig> ;
-  propName?: [string]
+  routes: Array<TRouteConfig>;
+  propName?: [string];
 }
 
-const RenderHandle: FC<any> = (props: IProps, item: TRouteConfig)=>{
+const RenderHandle: FC<any> = (props: IProps, item: TRouteConfig): JSX.Element => {
   if (item.redirect){
     return <Navigate to={item.redirect}/>
   }
@@ -22,7 +22,7 @@ const RenderHandle: FC<any> = (props: IProps, item: TRouteConfig)=>{
   }
 }
 
-const RouterView: FunctionComponent<any> = (props: IProps) => {
+const RouterView: FunctionComponent<any> = (props: IProps): ReactElement => {
   return (<Routes>
     {
       props.routes.map((item: TRouteConfig, index: number) => {

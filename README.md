@@ -37,6 +37,7 @@
 |@version|描述版本信息|||
 |@copyright|描述一些版权信息|`@copyright <some copyright text>`||
 |@callback|描述一个回调函数|`@callback <namepath>`||
+|@type|描述一个类型|@type{type}||
 |@class|此函数旨在需要使用"new"关键字调用，即构造函数|`@class [<type> <name>]`|@constructor|
 |@classdesc|使用后面的文字来描述整个类|`@classdesc <some description>`||
 |@constant|指明这个对象是一个常量|`@constant [<type> <name>]`|@const|
