@@ -5,7 +5,6 @@ import ComWritingParent from '../pages/WritingParent/WritingParent'
 
 /** 二级路由 */
 import ComWritingExhibition from '../pages/WritingExhibition/WritingExhibition'
-import { type } from 'os';
 
 export type TRouteConfig = {
   readonly path: string;
