@@ -1,6 +1,8 @@
 /** 一级路由 */
 import HomePage from '../containers/HomePage/index'
 import UserLogin from '../containers/UserLogin/index'
+import UserRegister from '../containers/UserRegister/index'
+import UserForgetPassword from '../containers/UserForgetPassword/index'
 import ComWritingParent from '../pages/WritingParent/WritingParent'
 
 /** 二级路由 */
@@ -28,6 +30,14 @@ const routes: Array<TRouteConfig> =
     /** @module 登录页面 */
     path: '/UserLogin', 
     component: UserLogin 
+  },{ 
+    /** @module 注册页面 */
+    path: '/UserRegister', 
+    component: UserRegister 
+  },{ 
+    /** @module 忘记密码页面 */
+    path: '/UserForgetPassword', 
+    component: UserForgetPassword 
   },{ 
     /** @module 主页面 */
     path: '/HomePage', 

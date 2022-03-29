@@ -9,7 +9,7 @@ const initalState = {
 }
 type State = Readonly<typeof initalState>
 type Props = Partial<{}>
-export default class UserLogin extends React.Component<Props, State> {
+export default class UserRegister extends React.Component<Props, State> {
   state: State = initalState;
   componentDidMount() {
 
@@ -19,9 +19,9 @@ export default class UserLogin extends React.Component<Props, State> {
   };
 
   render() {
-    return (<div className={styles.UserLogin}>
+    return (<div className={styles.UserRegister}>
       <div className={styles.loginForm}>
-        <div className={styles.formTit}>用户登录</div>
+        <div className={styles.formTit}>用户注册</div>
         <Form
           name="normal_login"
           className="login-form"
@@ -56,9 +56,9 @@ export default class UserLogin extends React.Component<Props, State> {
 
           <Form.Item>
             <Button block type="primary" htmlType="submit" className={styles.login_form_button}>
-              登录
+              注册
             </Button>
-            <Link to="/UserRegister" className={styles.toRegister}>去注册</Link>
+            <Link to="/UserLogin" className={styles.toRegister}>去登录</Link>
           </Form.Item>
         </Form>
       </div>
