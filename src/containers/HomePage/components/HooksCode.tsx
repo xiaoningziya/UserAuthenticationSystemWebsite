@@ -49,7 +49,14 @@ const Header: React.FC = () => {
   const [person, setPerson] = React.useState<Person | null>(null)
 
 
-  /** @method [useCallback<T>] 回调方法，创建可调用的方法 , 可以直接从它们返回的值中推断出它们的类型 */
+  /** @method [useCallback<T>]  缓存函数, 把函数缓存起来，提高性能，和减少资源浪费,可以直接从它们返回的值中推断出它们的类型 */
+  /** @param {参数1, 参数2} 参数1是函数，参数2是依赖项，依赖项改变就会触发函数改变 */
+  /** @description 
+   *  第二参数含义：
+   *  a. 空数组，只会计算一次
+   *  b. 不传数组，每次更新都会重新计算
+   *  c. 依赖对应的值，当对应的值发生变化时，才会重新计算
+   */
   // useCallback 的参数必须制定类型，否则 ts 不会报错，默认指定为 any
   // 同时也支持传入泛型，useCallback 的泛型指定了参数类型
   const showUser = React.useCallback((obj: typeof user)=>{
@@ -62,8 +69,15 @@ const Header: React.FC = () => {
   }, [])
 
 
-  /** @method [useMemo<T>] 回调方法，创建可调用的方法 , 可以直接从它们返回的值中推断出它们的类型 */
+  /** @method [useMemo<T>] 计算状态 , 要用于缓存计算结果的值，类似vue的computed，可以直接从它们返回的值中推断出它们的类型 */
+  /** @param {参数1, 参数2} 参数1是函数，参数2是依赖项，依赖项改变就会触发函数改变 */
   // 同时也支持传入泛型， useMemo 的泛型指定了返回值类型
+  /** @description 
+   *  第二参数含义：
+   *  a. 空数组，只会计算一次
+   *  b. 不传数组，每次更新都会重新计算
+   *  c. 依赖对应的值，当对应的值发生变化时，才会重新计算
+   */
   const value = 10
   const result = React.useMemo(() => value * 2, [value])
   const results = React.useMemo<number>(() => 2, [])
