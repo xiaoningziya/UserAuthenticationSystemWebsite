@@ -22,6 +22,10 @@ class Abstract {
         data,
         responseType
       }).then((res) => {
+        if(res?.data?.type === 'error'){
+          message.warning(res.data.msg || '网络请求出错')
+        }
+        console.log('res',res)
         resolve({ 
           status: res.status,
           data: res.data, 

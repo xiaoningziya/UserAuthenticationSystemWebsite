@@ -21,7 +21,7 @@ const CancelToken = axios.CancelToken
 const instance = axios.create({
   timeout: 10000,
   responseType: 'json',
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://127.0.0.1:7001/',
   // headers : { ContentType: 'application/json;charset=UTF-8' }
 })
 // 移除重复请求

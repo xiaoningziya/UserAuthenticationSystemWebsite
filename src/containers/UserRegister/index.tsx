@@ -3,9 +3,12 @@ import styles from './styles.module.scss'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
+import API from '../../api/index'
+import { message } from 'antd'
 
 const initalState = {
-  name: 'xxx'
+  username: '',
+  password: ''
 }
 type State = Readonly<typeof initalState>
 type Props = Partial<{}>
@@ -15,8 +18,22 @@ export default class UserRegister extends React.Component<Props, State> {
 
   }
   onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
+    if(values.username && values.password){
+      this.register();
+    }
   };
+  register = () => {
+    API.userRegister({
+      username: this.state.username,
+      password: this.state.password
+    }).then(res => {
+      if(res.data.type==='success'){
+        message.success('恭喜您，注册成功！')
+      }else{
+        message.warning(res.data.msg)
+      }
+    })
+  }
 
   render() {
     return (<div className={styles.UserRegister}>
@@ -32,13 +49,20 @@ export default class UserRegister extends React.Component<Props, State> {
             name="username"
             rules={[{ required: true, message: 'Please input your Username!' }]}
           >
-            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+            <Input 
+              value={this.state.username} 
+              onChange={(event: any)=>{ this.setState({username: event.target.value}) }} 
+              prefix={<UserOutlined className="site-form-item-icon" />} 
+              placeholder="Username" 
+            />
           </Form.Item>
           <Form.Item
             name="password"
             rules={[{ required: true, message: 'Please input your Password!' }]}
           >
             <Input
+              value={this.state.password} 
+              onChange={(event: any)=>{ this.setState({password: event.target.value}) }}
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="Password"

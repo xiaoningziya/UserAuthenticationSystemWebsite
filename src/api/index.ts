@@ -22,6 +22,10 @@ class API extends Abstract {
   userLogin (params: APIInterface.IUserLogin): Promise<CustomResponse> {
     return this.postReq({ url: '/user/login', params })
   }
+  // 用户注册
+  userRegister (data: APIInterface.IUserRegister): Promise<CustomResponse> {
+    return this.postReq({ url: '/user/register', data })
+  }
 }
 
 // 单列模式返回对象

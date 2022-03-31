@@ -1,4 +1,9 @@
 export interface IUserLogin {
-  account: string // 账号
+  username: string // 账号
+  password: string // 密码
+}
+
+export interface IUserRegister {
+  username: string // 账号
   password: string // 密码
 }
